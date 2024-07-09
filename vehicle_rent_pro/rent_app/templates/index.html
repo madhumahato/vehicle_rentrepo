@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+
+   <title> </title>
+   <meta name="keywords" content=" vehiclefor rent, car motorcycle, scooter">
+   <meta name="description" content="Hello!this is the best car in the world">
+   <meta name="author" content="madhu mahato">
+
+   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+   <link rel="stylesheet" href="{% static 'css/s.css' %}">
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+   <!--header section start -->
+
+   <nav class="navbar navbar-expand-lg new_navbar bg-transparent" data-bs-theme="dark">
+      <div class="container-fluid nav-container">
+         <img src="{% static 'images\zi68bljj_0-removebg-preview (2).png' %}" width="60px" height="50px">
+                  <a class="nav-link" href="{% url 'index' %}">Home</a>
+         <a class="navbar-brand brand-logo" href="{% url 'index' %}"><b>V</b>ehicle</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item ">
+                  <a class="nav-link" href="{% url 'index' %}">Home</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contact' %}">contact us</a>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    category
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">car</a></li>
+                    <li><a class="dropdown-item" href="#">motorcycle</a></li>
+                    <li><a class="dropdown-item" href="#">scooter</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    My Account
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     {% if request.user.is_authenticated %}
+                     <li><a class="dropdown-item" href="{% url 'logout_form' %}">log_out</a></li>
+                     {% else %}
+                    <li><a class="dropdown-item" href="{% url 'login_form' %}">log_in</a></li>
+                    {% endif %}
+                  </ul>
+                </li>
+
+
+            </ul>
+
+            <div class="icon_ho">
+
+               <a href="#"  target="_blank"><i class="fa-brands fa-facebook"></i></a>
+               <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+               <a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+               <form class="d-flex" role="search" method="POST">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searched">
+                </form>
+            </div>
+
+            <a href="{% url 'singup_form' %}"><button class="custom-btn btn-1">singin</button></a>
+
+            <!-- <form class="d-flex" role="search">
+               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+               <button class="btn btn-outline-success" type="submit">Search</button>
+             </form> -->
+         </div>
+      </div>
+   </nav>
+
+   <div class="col-sm-12">
+      <div class="banner_title">
+         <center>
+            <h1 class="outstanding_text" style="color: rgb(38, 30, 75);" data-aos="zoom-out" data-aos-duration="2000">VEHICLE</h1>
+            <h1 class="coffee_text" data-aos="zoom-in" data-aos-duration="2000"><b style="color: #f76d37;">The Best Vehicle for rent</b><br></h1>
+         </center>
+         <center>
+            <img src="{% static 'images\car9.jpeg' %}" width="400px" height="900">
+            <img src="{% static 'images\scooter2.jpeg' %}" width="400px" height="900px">
+            <img src="{% static 'images\Tricycle-768x551.webp' %}" width="400px" height="900px">
+         </center>
+         <p class="there_text" data-aos="fade-up" data-aos-duration="1000">
+             <b style="color: #f76d37;">The automotive industry is an ever-changing world, with new types of cars on the market every year. 
+               Technological innovations by the automakers have led to several new car types that did not exist a few years ago, 
+               and nowadays there are far over twenty different types of cars on the market.A crossover is often confused 
+               with an SUV. A crossover often comes as two-wheel drive, but it can also come with 4-wheel drive. It is
+                basically an off-road car chassis, but built more for city traffic.An important differentiating factor is the 
+                \chassis – the crossover uses a lighter monocoque chassis while the SUV uses a ladder frame chassis. Basically,
+                 it means that a CUV shares the frame of a car, and the SUV shares the frame of a truck. It can often be
+                  called a mix of an SUV and a hatchback. Honda Odyssey and Chrysler Pacifica are two good examples of 
+                  CUVs.Another type that climbs this list of car types is the SUV, which is becoming more and more
+                   popular. The SUV is a large car that can often carry five to seven passengers with three rows of seats.
+                    They are basically the same as a crossover, except that they are built on a body-on-frame chassis.
+                     They often have 4wd and good terrain capability.The difference between a station wagon and a
+                      hatchback is often the size, and that the station wagon often has a much steeper angle on the
+                       tailgate. Volkswagen Golf and Kia Rio are two common hatchback models. You can also find some 
+                       hatchbacks with high performance, called hot hatch.
+
+                     Nowadays there are also larger luxury vehicles categorized as hatchbacks with a steeply sloping
+                      tailgate like Audi A7, Kia Stinger, and Tesla Model S.
+            </b>
+         </p>
+      </div>
+   </div>
+   
+   
+
+      <!-- gallery section start -->
+   <div class="card text-center tab-titles-class" >
+      <h1 data-aos="fade-up" data-aos-duration="1000">Top Items for rent</h1>
+      <h3 style="margin-bottom: 30px;">Here's our top items rent for today:</h3>
+      <div class="container">
+         <ul class="tab-titles text-center" data-aos="fade-up" data-aos-duration="1000">
+            <li class="tab-links menu-title active" onclick="opentab('car')">car</li>
+            <li class="tab-links menu-title" onclick="opentab('Bike')">Bike</li>
+            <li class="tab-links menu-title" onclick="opentab('scooter')">Scooter</li>
+         </ul>
+      </div>
+
+      <div class="tab-content active-tab" data-aos="fade-up" data-aos-duration="1000" id="car">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-4 menu-item">
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images\sedan-.webp' %}" width="900px" height="600px">
+                     </p>
+
+                  </div>
+                     <div class="row-md-2">
+                        <span>Sedan car</span>
+                     </div>
+      
+                     <div class="row-md-2">
+                        <span>one day for rent</span>
+                        <div class="card-price">रु2000</div>
+                     </div>
+                     <div class="row-md-2">
+                        <span>one week for rent</span>
+                        <div class="card-price">रु13000</div>
+                        <p>The most common car type is the sedan. A sedan is a four-door car type with a traditional
+                            trunk. The difference between a hatchback and a sedan is .</p>
+                     </div>
+   
+               </div>
+               <div class="col-md-4 menu-item">
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images\suv-land1.webp' %}">
+                     </p>
+                  </div>
+                  <div class="row-md-4">
+                     <span>Sport Utility Vehicles (SUVs)</span>
+                  </div>
+                  <div class="row-md-4">
+                     <span>one day for rent</span>
+                     <div class="card-price">रु1500</div>
+                  </div>
+                  <div class="row-md-4">
+                     <span>one week for rent</span>
+                     <div class="card-price">रु10000</div>
+                     <p>
+                        Another type that climbs this list of car types is the SUV, which is becoming more and more 
+                        popular. The SUV is a large car that can often carry five to 
+                  </div>
+               </div>
+               <div class="col-md-4 menu-item">
+                  
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images\hatchback-golf.webp' %}">
+                     </p>
+                  </div>
+                  
+                  <div class="row-md-4">
+                     <span>Hatchback car</span>
+                  </div>
+                  <div class="row-md-4">
+                     <span>one day for rent</span>
+                     <div class="card-price">रु9000</div>
+                  </div>
+                  <div class="row-md-4">
+                     <span>one week for rent</span>
+                     <div class="card-price">रु6000</div>
+                     <p>A Hatchback car is basically a mix of a sedan and a station wagon. They often come
+                         as a 5-door set and have a hatch that opens upwards. Like the station wagon,
+                          a hatchback has door hinges above the rear window.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="tab-content active-tab" data-aos="fade-up" data-aos-duration="1000" id="car">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-4 menu-item">
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images\luxury-car-e.webp' %}" width="900px" height="600px">
+                     </p>
+
+                  </div>
+                     <div class="row-md-2">
+                        <span>Luxury Cars</span>
+                     </div>
+      
+                     <div class="row-md-2">
+                        <span>one day for rent</span>
+                        <div class="card-price">रु3500</div>
+                     </div>
+                     <div class="row-md-2">
+                        <span>one week for rent</span>
+                        <div class="card-price">रु24000</div>
+                        <p>A luxury car is exactly what it sounds like – luxury. They are often very expensive,
+                            and have all the latest features for a comfortable ride .</p>
+                     </div>
+   
+               </div>
+               <div class="col-md-4 menu-item">
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images\minivan-.jpg' %}">
+                     </p>
+                  </div>
+                  <div class="row-md-4">
+                     <span>Minivan (MPV)</span>
+                  </div>
+                  <div class="row-md-4">
+                     <span>one day for rent</span>
+                     <div class="card-price">रु1000</div>
+                  </div>
+                  <div class="row-md-4">
+                     <span>one week for rent</span>
+                     <div class="card-price">रु6000</div>
+                     <p>
+                        The minivan or multi-purpose vehicle (MPV) is a van, but instead of cargo space, 
+                        it has passenger seats. It often has 7 or 8 passenger seats, making it perfect for
+                         larger families or being used as a taxi.
+                     </p>    
+                  </div>
+               </div>
+               <div class="col-md-4 menu-item">
+                  
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images/muscle-car-e.webp' %}">
+                     </p>
+                  </div>
+                  
+                  <div class="row-md-4">
+                     <span>Muscle Cars</span>
+                  </div>
+                  <div class="row-md-4">
+                     <span>one day for rent</span>
+                     <div class="card-price">रु2500</div>
+                  </div>
+                  <div class="row-md-4">
+                     <span>one week for rent</span>
+                     <div class="card-price">रु17000</div>
+                     <p>Muscle cars are cars with large muscles under the hood. Muscle cars are often older American cars with very large and powerful v8 or
+                         v10 engines, but muscle cars are also available as modern cars</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="tab-content active-tab" data-aos="fade-up" data-aos-duration="1000" id="car">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-4 menu-item">
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images\pickup-truck.jpg' %}" width="900px" height="600px">
+                     </p>
+
+                  </div>
+                     <div class="row-md-2">
+                        <span>Pickup Truck</span>
+                     </div>
+      
+                     <div class="row-md-2">
+                        <span>one day for rent</span>
+                        <div class="card-price">रु500</div>
+                     </div>
+                     <div class="row-md-2">
+                        <span>one week for rent</span>
+                        <div class="card-price">रु3200</div>
+                        <p>Pickup trucks have become very common in recent years. A pickup has an enclosed 
+                           cab with an open cargo area. They can either have space for two passengers or four. .</p>
+                     </div>
+   
+               </div>
+               <div class="col-md-4 menu-item">
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images\roadster-car.webp' %}">
+                     </p>
+                  </div>
+                  <div class="row-md-4">
+                     <span>Roadster car</span>
+                  </div>
+                  <div class="row-md-4">
+                     <span>one day for rent</span>
+                     <div class="card-price">रु1800</div>
+                  </div>
+                  <div class="row-md-4">
+                     <span>one week for rent</span>
+                     <div class="card-price">रु12,500</div>
+                     <p>
+                        A roadster car is basically a convertible car, but with two doors, and it usually has no rear seat.
+                         They are therefore good for only two people.
+                         When it comes to size, they are often very small, with limited cargo space.
+                     </p>   
+                  </div>
+               </div>
+               <div class="col-md-4 menu-item">
+                  
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images\Shooting-Brake-1.jpg' %}">
+                     </p>
+                  </div>
+                  
+                  <div class="row-md-4">
+                     <span>Shooting Brake</span>
+                  </div>
+                  <div class="row-md-4">
+                     <span>one day for rent</span>
+                     <div class="card-price">रु3000</div>
+                  </div>
+                  <div class="row-md-4">
+                     <span>one week for rent</span>
+                     <div class="card-price">रु20,000</div>
+                     <p>A shooting brake car is a body style that was originally developed as a horse-drawn wagon.
+                         It’s a two-door wagon design with a large cargo area and an optional rear seat.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="tab-content" id="Bike" data-aos="fade-up" data-aos-duration="1000">
+         <div class="container text-center">
+            <div class="row">
+               <div class="col-md-4 menu-item">
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images\Chopper-768x518.webp' %}">
+                     </p>
+                  </div>
+                     <div class="row-md-2">
+                        <span>Chopper</span>
+                     </div>
+                     <div class="row-md-2">
+                        <span>one day for rent</span>
+                        <div class="card-price">रु550</div>
+                     </div>
+                     <div class="row-md-2">
+                        <span>one week for rent</span>
+                        <div class="card-price">रु3800</div>
+                        <p>
+                           A chopper is a type of motorcycle that uses a radically modified steering angle and taller 
+                           forks for an elongated appearance. There are two famous examples of chopper motorcycles,
+                            the “Captain America” and the “Billy Bike,” which are customized Harley-Davidson motorcycles.
+                        </p>
+                     </div>
+               </div>
+
+
+               <div class="col-md-4 menu-item">
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images\Cruiser-.webp' %}">
+                     </p>
+
+                  </div>
+                     <div class="row-md-2">
+                        <span>Cruiser</span>
+                     </div>
+                     <div class="row-md-2">
+                        <span>Cruiser</span>
+                        <div class="card-price">रु180</div>
+                     </div>
+                     <div class="row-md-2">
+                        <span>Cruiser</span>
+                        <div class="card-price">रु180</div>
+                        <p>
+                           Similarly to hybrid bikes, cruiser bikes have an upright riding position and a large, 
+                           comfortable seat, making them ideal for casual riding. Some cruisers were built by 
+                           Harley-Davidson, Indian, and Excelsior-Henderson.
+                        </p>
+                     </div>
+               </div>
+   
+               <div class="col-md-4 menu-item">
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images\Dual-Purpose-Motorcycle-768x486.webp' %}">
+                     </p>
+
+                  </div>
+                     <div class="row-md-2">
+                        <span>Dual-purpose Motorcycle</span>
+                        <div class="card-price">रु200</div>
+                     </div>
+                     <div class="row-md-2">
+                        <span>Dual-purpose Motorcycle</span>
+                        <div class="card-price">रु200</div>
+                     </div>
+                     <div class="row-md-2">
+                        <span>Dual-purpose Motorcycle</span>
+                        <div class="card-price">रु200</div>
+                        <p>
+                           A dual-purpose motorcycle is a type of motorcycle designed for both on- and off-road usage.
+                            Their chassis is usually based on a dirt bike, but they have lights, mirrors, signals, 
+                            and instruments that make them legal on public roads.
+                        </p>
+                     </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      
+
+      <div class="tab-content" id="scooter" data-aos="fade-up" data-aos-duration="1000">
+         <div class="container text-center">
+            <div class="row">
+
+               <div class="col-md-4 menu-item">
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images\scoter1.jpeg' %}">
+                     </p>
+                  </div>
+                     <div class="row-md-2">
+                        <span>Huffy 6V Vespa Ride-On Electric Scoote</span>
+                     </div>
+                     <div class="row-md-2">
+                        <span>one day for rent</span>
+                        <div class="card-price">रु600</div>
+                     </div>
+                     <div class="row-md-2">
+                        <span>one week for rent</span>
+                        <div class="card-price">रु4100</div>
+                        <p>
+                           Electric Ride-On Vespa for Toddlers. Ideal for ages 1 to 3, this 6V Vespa ride-on toy
+                            makes playtime a fun adventure. This super stylish electric scooter features a 
+                            foot-pedal accelerator. Flip the power switch and press down on the pedal to go. 
+                        </p>
+                     </div>
+   
+               </div>
+
+               <div class="col-md-4 menu-item">
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images\scooter2.jpeg' %}">
+                     </p>
+                  </div>
+                     <div class="row-md-2">
+                        <span>yamaha scooter</span>
+                     </div>
+                     <div class="row-md-2">
+                        <span>one day for rent</span>
+                        <div class="card-price">रु650</div>
+                     </div>
+                     <div class="row-md-2">
+                        <span>one week for rent</span>
+                        <div class="card-price">रु4500</div>
+                        <p>
+                           Similarly to hybrid bikes, cruiser bikes have an upright riding position and a large, 
+                           comfortable seat, making them ideal for casual riding. Some cruisers were built by 
+                           Harley-Davidson, Indian, and Excels
+                        </p>
+                     </div>
+   
+               </div>
+
+               <div class="col-md-4 menu-item">
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{% static 'images\scooter3.jpeg' %}">
+                     </p>
+                  </div>
+                     <div class="row-md-2">
+                        <span>vespa scooters</span>
+                     </div>
+                     <div class="row-md-2">
+                        <span>one day for rent</span>
+                        <div class="card-price">रु950</div>
+                     </div>
+                     <div class="row-md-2">
+                        <span>one week for rent</span>
+                        <div class="card-price">रु6600</div>
+                        <p>
+                           Similarly to hybrid bikes, cruiser bikes have an upright riding position and a large, 
+                           comfortable seat, making them ideal for casual riding. Some cruisers were built by 
+                           Harley-Davidson, Indian, and Excels
+                        </p>
+                     </div>
+   
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </div>
+   <!-- gallery section end -->
+
+      <!-- testimonial section start -->
+      <div class="client_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="client_taital" data-aos="fade-up" data-aos-duration="1000">TESTEMONIALS</h1>
+                  <p class="client_text" data-aos="fade-up" data-aos-duration="1000">
+                     Here's what our customers have to say about us:
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <div class="client_section_2">
+                     <div class="container">
+                        <div class="row">
+                           <div class="col-md-12">
+                              <div class="testimonial_section_2">
+                                 <h4 class="client_name_text" data-aos="fade-up" data-aos-duration="1000">car 
+                                    <span class="quick_icon">
+                                    <img src="{% static 'images\car5.jpeg' %}" width="400px" height="900">
+                                 </span>
+                              </h4>
+                                 <p class="customer_text" data-aos="fade-up" data-aos-duration="1000">
+                                    Pickups are ideal for farmers and transport due to their large
+                                    cargo areas and the powerful engines that can tow heavy equipment. Most pickup trucks
+                                    are four-wheel drive or part-time four-wheel drive. However, there are also many
+                                    models with the option of only 2WD.Pickup trucks come in two size categories: 
+                                    full-size and mid-size, and there are often many options to choose from, 
+                                    like extended cab, single cab or crew cab. Toyota Hilux, Nissan Navara, Chevrolet Silverado
+                                    and Dodge F150 are some common pickup trucks.A Van is a two- or three-seater car model that 
+                                    is often used to transport goods. They often have a sealed cab from the cargo area, and they 
+                                    often have no windows to the cargo area, but some models have glass windows at the rear doors.
+                                     They are the perfect choice for transporting goods, usually with a very high load capacity 
+                                     of over a ton. Volkswagen Transporter, Chevrolet Van or GMC Vandura are some common van models.
+                                     A sports car is anything that looks sporty to you, and it can be a roadster, coupe, or even a sedan. 
+                                     Sports cars are quite similar to the supercar, because a supercar can also be a sports car, but the 
+                                     difference is often that the sports car is a step below the supercar regarding performance and price.
+                                     A sports car is anything that looks sporty to you, and it can be a roadster, coupe, or even a sedan. 
+                                     Sports cars are quite similar to the supercarbecause a supercar can also be a sports car, but the difference is often that the sports car is a step below the supercar regarding performance and pric
+
+
+
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="carousel-item">
+                  <div class="client_section_2">
+                     <div class="container">
+                        <div class="row">
+                           <div class="col-md-12">
+                              <div class="testimonial_section_2">
+                                 <h4 class="client_name_text">Bike
+                                    <span class="quick_icon">
+                                       <img src="{% static 'images\Touring-Motorcycle-768x511.webp' %}" width="400px" height="900">
+                                 </span>
+                              </h4>
+                                 <p class="customer_text"> motorcycle is a two or three-wheeled motor vehicle steered by a handlebar from a saddle-style seat. Motorcycle designs variy greatly to suit a range of different purposes: long-distance travel, comm…
+                                    Wikipedia
+                                    
+                                    The first Harley Davidson motorcycle, built in 1903, used a tomato soup can for a carburetor. Evel Knievel holds the world record for breaking the most number of bones and surviving.
+                                    
+                                    The first gas-powered motorcycle was invented by Gottlieb Daimler of Germany in 1885.
+                                     The motorcycle was built from a wooden frame with a gas engine attached to itEver since the first 
+                                     motorcycle was introduced towards the tail-end of the 1800s, bikes have slowly but steadily progressed and 
+                                     evolved as manufacturers attempt to deliver ever-more-specific genres of two-wheeler, each of which is built 
+                                     to take on a different purpose, riding style, or application. And while the  Motorcycle Safety Foundation may 
+                                     only officially recognize three distinct types of bike, the reality is that there’s more than a dozen different 
+                                     styles and sub-genres that comprise the current moto landscape. To help simplify this seemingly complex space, 
+                                     we’re breaking down the modern motorcycle sector to deliver our ultimate guide to motorcycle types. 
+
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="carousel-item">
+                  <div class="client_section_2">
+                     <div class="container">
+                        <div class="row">
+                           <div class="col-md-12">
+                              <div class="testimonial_section_2">
+                                 <h4 class="client_name_text">scooter
+                                    <span class="quick_icon">
+                                       <img src="{% static  'images\scoter1.jpeg' %}" width="400px" height="900">
+                                 </span>
+                              </h4>
+                                 <p class="customer_text">
+                                    A scooter meshes features of both a bicycle and a motorcycle, offering the rider control with mid-level speed 
+                                    and power. The earliest scooter model was introduced in 1914 and modern advances have made the units more popular 
+                                    than ever. A wide variety of options (speed, power, size) contribute to riders of all shapes, sizes, and experience 
+                                    levels finding a model perfect for their needs.Scooters are most popularly used as a
+                                     means of personal transportation. They are very easy to maintain, simple to operate, 
+                                     and cost-efficient to own and run. Scooters are beneficial for big cities where 
+                                     parking is at a premium and small towns where backroad cruises are peaceful and 
+                                     relaxing. Scooters are also very versatile in terms of storage while licensing
+                                      and insurance requirements for scooters are more relaxed and less expensive than 
+                                      those for cars in most parts of the world.Scooter engines and drive systems are 
+                                      attached to the rear axle or under the seat. Unlike a conventional motorcycle, 
+                                      in which the engine is mounted on the frame, most modern scooters allow the engine
+                                       to swing with the rear wheel. Most vintage scooters and some newer retro models
+                                        have axle-mounted engines with a manual transmission and the gear shift and 
+                                        clutch controls built into the left handlebar. Most late-model scooters use a 
+                                        continuously variable transmission (CVT). Some even feature an electric motor,
+                                         no gas needed
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </div>
+
+      <!-- contact section start -->
+    <div class="contact_section_2 layout_padding">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-6 padding_0">
+               <div class="form-container form-container-1" data-aos="fade-up" data-aos-duration="1000">
+                  <form method="POST" action="/index/">
+                     {% csrf_token %}
+                     <h1 style="color: white; font-size: 50px; border-bottom: 3px solid #f76d37;" class="text-center"><b>GET IN TOUCH</b></h1>
+
+                     <div class="form-container">
+                        <div class="form">
+                           <input required="" placeholder="Name" type="text" class="input" name="name">
+                           <input required="" placeholder="Email" type="email" class="input" name="email">
+                           <input required="" placeholder="Phone Number" type="tel" class="input" name="phone">
+                           <textarea required="" placeholder="messages" rows="10" cols="30" id="message" name="message"
+                              name="message" class="textarea"></textarea>
+                           <div class="button-container">
+                              <input type="submit" value="SEND" class="send-button">
+
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+
+            </div>
+            <div class="col-md-6 padding_0">
+               <div class="map-responsive" data-aos="fade-up" data-aos-duration="1000">
+                  <h1 style="color: black; font-size: 50px;" class="text-center"><b>OUR LOCATION</b></h1>
+
+
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14127.45802872326!2d85.3429805871582!3d27.721469400000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1bda4a951f0f%3A0x3ddabb234891c3bd!2sBuddha%20Stupa!5e0!3m2!1sen!2snp!4v1713623524286!5m2!1sen!2snp" 
+                  width="600px" height="620px"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- contact section end -->
+
+
+
+    <!-- footer section start -->
+    <div class="footer_section layout_padding" data-aos="fade-up" data-aos-duration="1000">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-3 col-sm-6">
+               <img src="{% static 'images\zi68bljj_0-removebg-preview (2).png' %}" width="75px" height="50">
+               <p class="footer_text">We at <b style="font: bold;">Vehicle</b> he first gas-powered motorcycle was invented by Gottlieb Daimler of Germany in 1885.
+                  The motorcycle was built from a wooden frame with a gas engine attached to itEver since the first 
+                  motorcycle was introduced towards the tail-end of the 1800s, bikes have slowly but steadily progressed and 
+                  evolved .
+</p>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+               <h3 class="useful_text"><b style="color: #f76d37;">v</b>ehicle</h3>
+               <div class="footer_menu">
+                  <ul>
+                     <li><a href="{% url 'index' %}">Home</a></li>
+                     <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                     <li><a href="{% url 'login_form' %}">LOGIN</a></li>
+                     <li><a href="{% url 'logout_form' %}">logout</a></li>
+                     <li><a href="{% url 'singup_form' %}">sing in</a></li>
+                     
+                  </ul>
+               </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+               <h3 class="useful_text">Legals</h3>
+               <div class="footer_menu">
+                  <ul>
+                     <li><a href="#">Terms and conditions</a></li>
+                     <li><a href="#">Privacy</a></li>
+                     <li><a href="#">Policy</a></li>
+                     <li><a href="#">Support</a></li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+               <h1 class="useful_text">Contact Us</h1>
+               <div class="location_text">
+                  <ul>
+                     <li>
+                        <a href="#">
+                           <i class="fa fa-map-marker" aria-hidden="true"></i><span class="padding_left_10">Address :
+                              bhaisepati lalitpur-25
+                           </span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="tel:+9779810124604">
+                           <i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_10">Call :
+                              +9779810124604</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="mailto:mahatomadhu2002@gmail.com">
+                           <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10">Email :
+                              mahatomadhu2002@gmail.com</span>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- footer section end -->
+   <!-- copyright section start -->
+   <div class="copyright_section">
+      <div class="container">
+         <p class="copyright_text">{{date}} All Rights Reserved. Design by <a href="#">madhu</a></p>
+      </div>
+   </div>
+   <!-- copyright section end -->
+   <!-- Javascript files-->
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+   crossorigin="anonymous"></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+   crossorigin="anonymous"></script>
+   
+   <script src="{% static 'js/s.js' %}"></script>
+   <script src="{% static 'js/bootstrap.min.js' %}"></script>
+   <script src="{% static 'js/jquery.min.js' %}"></script>
+
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script>
+     AOS.init();
+   </script>
+
+   <!-- sidebar -->
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"></script>
+
+   <script src="https://kit.fontawesome.com/b52396679f.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
